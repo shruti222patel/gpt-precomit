@@ -1,5 +1,5 @@
-- id: docstring-gpt
-  name: docstring-gpt
+- id: add-docstring
+  name: add-docstring
   description: Generate missing docstrings with LLMs.
   entry: add-docstring
   language: python
