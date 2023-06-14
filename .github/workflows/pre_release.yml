@@ -22,13 +22,16 @@ jobs:
         run: |
           curl -sSL https://install.python-poetry.org | python - -y
 
+
       - name: Update PATH
         run: echo "$HOME/.local/bin" >> $GITHUB_PATH
 
       - name: Build project for distribution
         run: poetry build
 
+      - run: poetry config repositories.testpypi https://test.pypi.org/legacy/
+
+      - run: poetry config pypi-token.testpypi ${{ secrets.PYPI_TOKEN }}
+
       - name: Publish to PyPI
-        env:
-          POETRY_PYPI_TOKEN_PYPI: ${{ secrets.PYPI_TOKEN }}
-        run: poetry publish
+        run: poetry publish --build -r testpypi
