@@ -1,0 +1,7 @@
+- id: add-docstring
+  name: add-docstring
+  description: Generate missing docstrings with LLMs.
+  entry: add-docstring
+  language: python
+  pass_filenames: true
+  types: [file]

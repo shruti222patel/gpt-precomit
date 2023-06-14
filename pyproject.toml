@@ -1,0 +1,24 @@
+[tool.poetry]
+name = "gpt-precommit"
+version = "0.1.0"
+description = "Precommit hooks using LLMs."
+authors = ["Shruti Patel <shruti222patel@gmail.com>"]
+license = "Apache 2"
+readme = "README.md"
+packages = [{include = "hooks"}]
+
+[tool.poetry.dependencies]
+python = "^3.11"
+redbaron = "^0.9.2"
+openai = "^0.27.8"
+tqdm = "^4.65.0"
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^7.3.2"
+
+[tool.poetry.scripts]
+add-docstring = "hooks.add_docstring:main"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
